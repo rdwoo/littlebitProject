@@ -1,1 +1,85 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<malloc.h>
+#include<string.h>
 
+int ChCkr() // 별루다.https://weejw.tistory.com/192
+{//숫자만 입력하게 하는 제어문
+	int ch, c;
+	/*scanf("%d", &ch);
+	getchar();
+	printf("ch=%d", ch);*/
+
+	do {
+		printf("숫자를 입력해주세요 :");
+		if (!scanf("%d", &ch)) {
+			while (c = getchar() != '\n' && c != EOF);
+		}
+	} while (!scanf("%d", &ch));
+}
+
+void test() { //문자를 입력할 때 동적할당으로 자유롭게 타이핑이 가능하게하고 작성이 끝난후에 엔터를 쳤을 때 크기를 제한하게 한다.
+	int* num;
+	num = malloc(sizeof(int));
+	int len = strlen(num);
+	for (int i = 0; i < len; i++) {
+		num[i] = getchar();
+		if (num[i] = "\n") {
+			break;
+		}
+	}
+	for (int i = 0; i < len; i++) {
+		printf("%c", num);
+	}
+}
+
+
+int HrlyWage, h;
+float m, time; 
+
+
+
+int hrlyWage() {
+	//HrlyWage = malloc(sizeof(int));
+	scanf("%d", &HrlyWage);
+	//예외처리 나중에
+	//if (HrlyWage != getchar("%d")) { //getchar를 사용해서 숫자가 아닌 다른 문자가 찍히면 Error meassge를 프린트한다.
+	//	printf("Error");
+	//}
+	return 0; //printf("%d", HrlyWage);
+}
+
+int myWorkh() {
+	scanf("%d", &h);
+	return 0;
+}
+
+float myWorkm() {
+	scanf("%f", &m);
+	m = (m / 60);
+	return 0;
+}
+
+int mysum(float a, float b) {
+	
+	printf("*Sum : %0.f\n*WeekTotal : %0.f\n*MonthTotal : %0.f", a * b, (a * b) * 2, ((a * b) * 2) * 4);
+	return (a * b) * 2;
+}
+
+int main()
+{
+	
+	printf("Input your Hourly Wage : ");
+	//ChCkr();
+	hrlyWage();
+	printf("Input your Work Time\n");
+	printf("hour : ");
+	myWorkh();
+	printf("minute : ");
+	myWorkm();
+	printf("\n");
+	time = (float)h + m;
+	printf("*HourlyWage : %d\n*Time : %f\n", HrlyWage, time);
+	mysum(HrlyWage, time);
+	
+	return 0; // printf("time : %.2f", time);
