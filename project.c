@@ -7,23 +7,25 @@ int HrlyWage, h;
 float m, time, result;
 //float* result;
 
-//µ¿ÀûÇÒ´ç±¸ÇöÀ» ±»ÀÌ ÇØ¾ßÇÏ³ª?¶ó´Â ¹°À½Ç¥°¡.. ¿Ö³Ä¸é ±âº»ÀûÀ¸·Î 4¹ÙÀÌÆ® ÇÒ´ç
-//8¹ÙÀÌÆ®·Î ÇÒ´çÀÌ µÇ´Ï±ñ 1¹ÙÀÌÆ®¿¡ 8ºñÆ® 2^(3 * 4)ÀÌ¸é 16777216ÀÌ ÃÖ´ë
+//ë™ì í• ë‹¹êµ¬í˜„ì„ êµ³ì´ í•´ì•¼í•˜ë‚˜?ë¼ëŠ” ë¬¼ìŒí‘œê°€.. ì™œëƒë©´ ê¸°ë³¸ì ìœ¼ë¡œ 4ë°”ì´íŠ¸ í• ë‹¹
+//8ë°”ì´íŠ¸ë¡œ í• ë‹¹ì´ ë˜ë‹ˆê¹ 1ë°”ì´íŠ¸ì— 8ë¹„íŠ¸ 2^(3 * 4)ì´ë©´ 16777216ì´ ìµœëŒ€
 
 int hrlyWage() {
+	printf("Input your Hourly Wage : ");
 	//HrlyWage = malloc(sizeof(int));
 	scanf("%d", &HrlyWage);
-	//¿¹¿ÜÃ³¸® ³ªÁß¿¡
-	//if (HrlyWage != getchar("%d")) { //getchar¸¦ »ç¿ëÇØ¼­ ¼ıÀÚ°¡ ¾Æ´Ñ ´Ù¸¥ ¹®ÀÚ°¡ ÂïÈ÷¸é Error meassge¸¦ ÇÁ¸°Æ®ÇÑ´Ù.
+	//ì˜ˆì™¸ì²˜ë¦¬ ë‚˜ì¤‘ì—
+	//if (HrlyWage != getchar("%d")) { //getcharë¥¼ ì‚¬ìš©í•´ì„œ ìˆ«ìê°€ ì•„ë‹Œ ë‹¤ë¥¸ ë¬¸ìê°€ ì°íˆë©´ Error meassgeë¥¼ í”„ë¦°íŠ¸í•œë‹¤.
 	//	printf("Error");
 	//}
 	return 0; //printf("%d", HrlyWage);
 }
 
 float Worktime(int h, float m, float* time) {
-	printf("hour : ");
+	printf("Input your Work Time\n");
+	printf("\t\thour : ");
 	scanf("%d", &h);
-	printf("minute : ");
+	printf("\t\tminute : ");
 	scanf("%f", &m);
 	m = (m / 60);
 	*time = (float)h + m;
@@ -32,20 +34,22 @@ float Worktime(int h, float m, float* time) {
 }
 
 int mysum(float a, float b, float* result) {
-	*result = a * b; //*result ÇÏ³ªÀÇ Çü½Ä
-	printf("*Sum : %0.f\n*WeekTotal : %0.f\n*MonthTotal : %0.f", *result, *result * 2, (*result * 2) * 4);
+	*result = a * b; //*result í•˜ë‚˜ì˜ í˜•ì‹
+	printf("*DailyTotal : %0.f ì›\n*WeekTotal : %0.f ì›\n*MonthTotal : %0.f ì›\n", *result, *result * 2, (*result * 2) * 4);
 	return (a * b) * 2;
 }
 
 int main()
 {
-	printf("Input your Hourly Wage : ");
+			
 	hrlyWage();
-	printf("Input your Work Time\n");
-	Worktime(h, m, &time);
-	printf("*HourlyWage : %d\n*Time : %f\n", HrlyWage, time);
+			
+	Worktime(h, m, &time); 
+			printf("*HourlyWage : %d ì›\n*Time : %.2f\n", HrlyWage, time);
+			
 	mysum(HrlyWage, time, &result);
-	printf("\nresult : %d, time : %d", result, time); //°ªÀÌ ³ª¿ÀÁö ¾ÊÀ½ ¿Ö³ÄÇÏ¸é Æ÷ÀÎÅÍ °ªÀ» ´ãÀ» ÁÖ¼Ò°¡ ÇÊ¿äÇßÀ» »Ó
+			printf("\n===============================result : %.2f, time : %.2f\n", result, time);
+			 //ê°’ì´ ë‚˜ì˜¤ì§€ ì•ŠìŒ ì™œëƒí•˜ë©´ í¬ì¸í„° ê°’ì„ ë‹´ì„ ì£¼ì†Œê°€ í•„ìš”í–ˆì„ ë¿
 
 	return 0; // printf("time : %.2f", time);
 }
